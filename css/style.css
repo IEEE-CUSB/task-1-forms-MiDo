@@ -198,6 +198,10 @@ input[placeholder]:focus {
     opacity:0;
 }
 
+.modal {
+    top:30%;
+}
+
 
 
 /****************   Form End      ***************/

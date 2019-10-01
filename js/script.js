@@ -32,20 +32,7 @@ $(document).ready(function() {
         }
     });
 
-    // $(".preferred-workshop").selectBoxIt({
-    //     autoWidth: false,
-    //     // Uses the jQueryUI 'shake' effect when opening the drop down
-    //     showEffect: "shake",
-    //
-    //     // Sets the animation speed to 'slow'
-    //     showEffectSpeed: 'slow',
-    //
-    //     // Sets jQueryUI options to shake 1 time when opening the drop down
-    //     showEffectOptions: { times: 1 },
-    //
-    //     // Uses the jQueryUI 'explode' effect when closing the drop down
-    //     hideEffect: "explode"
-    // });
+
 
     // $('input').forEach(function (item) {
     //     if($(this).hasAttribute('data-written')) {
@@ -55,22 +42,30 @@ $(document).ready(function() {
 
     // image gallery
 // init the state from the input
-    $(".image-checkbox").each(function () {
-        if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
-            $(this).addClass('image-checkbox-checked');
-        }
-        else {
-            $(this).removeClass('image-checkbox-checked');
-        }
-    });
+//     $(".image-checkbox").each(function () {
+//         if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
+//             $(this).addClass('image-checkbox-checked');
+//         }
+//         else {
+//             $(this).removeClass('image-checkbox-checked');
+//         }
+//     });
 
 // sync the state to the input
+    var checkLen =0;
     $(".image-checkbox").on("click", function (e) {
-        $(this).toggleClass('image-checkbox-checked');
-        $(this).siblings('.sections').toggleClass('display');
-        var $checkbox = $(this).find('input[type="checkbox"]');
-        $checkbox.prop("checked",!$checkbox.prop("checked"));
-        e.preventDefault();
+        // debugger;
+        if(checkLen > 1) {
+            $(this).removeClass('image-checkbox-checked');
+            $('.modal').css('display','block');
+        } else {
+            $(this).toggleClass('image-checkbox-checked');
+            $(this).siblings('.sections').toggleClass('display');
+            var $checkbox = $(this).find('input[type="checkbox"]');
+            $checkbox.prop("checked",!$checkbox.prop("checked"));
+            e.preventDefault();
+        }
+        checkLen  = $('.image-checkbox.image-checkbox-checked').length;
     });
 
     $('[data-toggle="tooltip"]').tooltip({
@@ -84,6 +79,23 @@ $(document).ready(function() {
         if($(this).attr('required')) {
             $(this).parent().append("<span class='position-absolute' style='top:60%; right:10px; color:red;'><strong>*</strong></span>");
         }
+    });
+
+    // $('.image-checkbox').click(function(){
+    //     if($('.image-checkbox.image-checkbox-checked').length > 2) {
+    //         $(this).removeClass('image-checkbox-checked');
+    //         $(this).siblings('.sections').removeClass('display');
+    //     }
+    //     // console.log($('.image-checkbox.image-checkbox-checked').length);
+    //     // if ($('.checkbox:checked').length >= 3) {
+    //     //     $(".checkbox").not(":checked").attr("disabled",true);
+    //     // }
+    //     // else
+    //     //     $(".checkbox").not(":checked").removeAttr('disabled');
+    // });
+
+    $('.modal-footer button, .modal-header button').on('click', function(){
+        $('.modal').css('display','none');
     });
 
 });

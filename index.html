@@ -70,7 +70,8 @@
                     </div>
 
                     <div class="form-group mt-5">
-                        <h4 class="mb-5">Your Preferred Workshop</h4>
+                        <h4 id="pref-works" aria-describedby="pref-work">Your Preferred Workshop</h4>
+                        <small id="pref-work" class="form-text text-muted mb-5 mt-n1 ml-2">Pick Your first Choice first then the Second one</small>
 <!--                        <select class="preferred-workshop">-->
 <!--                            <option selected>Choose</option>-->
 <!--                            <option>Web</option>-->
@@ -83,7 +84,7 @@
                             <div class=" col-sm-6 col-md-3 nopad text-center opt">
                                 <label class="image-checkbox" data-toggle="tooltip" data-placement="top" title="<h5>Computer Directorate Workshop</h5>">
                                     <img class="img-fluid rounded" src="images/it.png"/>
-                                    <input type="checkbox" name="image[]" value="" required="required"/>
+                                    <input type="checkbox" name="image[]" value="" required="required" class="checkbox"/>
                                     <i class="fa fa-check d-none"></i>
                                 </label>
                                 <div class="sections pl-4 display">
@@ -100,7 +101,7 @@ Create your own application that can be your startup business.">
                             <div class="col-sm-6 col-md-3 nopad text-center opt" data-toggle="tooltip" data-placement="top" title="<h5>Power Directorate Workshops</h5>">
                                 <label class="image-checkbox" >
                                     <img class="img-fluid rounded" src="images/power.png"/>
-                                    <input type="checkbox" name="image[]" value="" required/>
+                                    <input type="checkbox" name="image[]" value="" required class="checkbox"/>
                                     <i class="fa fa-check d-none"></i>
                                 </label>
                                 <div class="sections pl-4 display">
@@ -117,7 +118,7 @@ Never came into your mind to design your own motor ?">
                             <div class=" col-sm-6 col-md-3 nopad text-center opt" data-toggle="tooltip" data-placement="top" title="<h5>Electronics Directorate Workshops</h5>">
                                 <label class="image-checkbox">
                                     <img class="img-fluid rounded" src="images/elec.jpg"/>
-                                    <input type="checkbox" name="image[]" value="" required/>
+                                    <input type="checkbox" name="image[]" value="" required class="checkbox"/>
                                     <i class="fa fa-check d-none"></i>
                                 </label>
                                 <div class="sections pl-4 display">
@@ -135,90 +136,7 @@ Never came into your mind to design your own motor ?">
                             <div class=" col-sm-6 col-md-3 nopad text-center opt" data-toggle="tooltip" data-placement="top" title="<h5>Embedded Directorate Workshops</h5>">
                                 <label class="image-checkbox">
                                     <img class="img-fluid rounded" src="images/arduino.png"/>
-                                    <input type="checkbox" name="image[]" value="" required/>
-                                    <i class="fa fa-check d-none"></i>
-                                </label>
-                                <div class="sections pl-4 display">
-                                    <label class="d-block radio" data-toggle="tooltip" data-placement="right" title="<h5>Arduino Diploma Workshop</h5>
-This diploma is designed for giving a huge practical experience by using Arduino">
-                                        <input type="radio" class="mr-1" name="embedded" value="arduino"> <span>Arduino Diploma</span>
-                                    </label>
-                                    <label class="d-block radio" data-toggle="tooltip" data-placement="right" title="<h5>Embedded System Workshop</h5>
-This diploma is designed for giving a great knowledge of embedded system field from A to Z">
-                                        <input type="radio" class="mr-1" name="embedded" value="embedded"> <span>Embedded System</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group mt-3">
-                        <h4 class="mb-5">Your Second Preference</h4>
-<!--                        <select class="preferred-workshop">-->
-<!--                            <option selected>Choose</option>-->
-<!--                            <option>Web</option>-->
-<!--                            <option>Android</option>-->
-<!--                            <option>Arduino</option>-->
-<!--                            <option>Rasberry Pi</option>-->
-<!--                            <option>Embedded</option>-->
-<!--                        </select>-->
-                        <div class="row">
-                            <div class=" col-sm-6 col-md-3 nopad text-center opt">
-                                <label class="image-checkbox" data-toggle="tooltip" data-placement="top" title="<h5>Computer Directorate Workshop</h5>">
-                                    <img class="img-fluid rounded" src="images/it.png"/>
-                                    <input type="checkbox" name="image[]" value="" class="check-box"/>
-                                    <i class="fa fa-check d-none"></i>
-                                </label>
-                                <div class="sections pl-4 display">
-                                    <label class="d-block radio" data-toggle="tooltip" data-placement="right" title="<h6>Web Development Workshop</h6>
-Create amazing websites using the newest technologies and frameworks that powers the internet!">
-                                        <input type="radio" class="mr-1" name="it" value="web"> <span>Web</span>
-                                    </label>
-                                    <label class="d-block radio" data-toggle="tooltip" data-placement="right" title="<h6>Android</h6>
-Create your own application that can be your startup business.">
-                                        <input type="radio" class="mr-1" name="it" value="android"> <span>Android</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-3 nopad text-center opt" data-toggle="tooltip" data-placement="top" title="<h5>Power Directorate Workshops</h5>">
-                                <label class="image-checkbox" >
-                                    <img class="img-fluid rounded" src="images/power.png"/>
-                                    <input type="checkbox" name="image[]" value="" class="check-box"/>
-                                    <i class="fa fa-check d-none"></i>
-                                </label>
-                                <div class="sections pl-4 display">
-                                    <label class="d-block radio" data-toggle="tooltip" data-placement="right" title="<h5>Power Distribution Workshop</h5>
-Get to know power & distribution systems with load estimation & 2D modelling">
-                                        <input type="radio" class="mr-1" name="power" value="distribution"> <span>Power Distribution</span>
-                                    </label>
-                                    <label class="d-block radio" data-toggle="tooltip" data-placement="right" title="<h5>PLC and classic control workshop</h5>
-Never came into your mind to design your own motor ?">
-                                        <input type="radio" class="mr-1" name="power" value="plc"> <span>PLC and classic control</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class=" col-sm-6 col-md-3 nopad text-center opt" data-toggle="tooltip" data-placement="top" title="<h5>Electronics Directorate Workshops</h5>">
-                                <label class="image-checkbox">
-                                    <img class="img-fluid rounded" src="images/elec.jpg"/>
-                                    <input type="checkbox" name="image[]" value="" class="check-box"/>
-                                    <i class="fa fa-check d-none"></i>
-                                </label>
-                                <div class="sections pl-4 display">
-                                    <label class="d-block radio" data-toggle="tooltip" data-placement="right" title="<h5>Logic Design Workshop</h5>">
-                                        <input type="radio" class="mr-1" name="electronics" value="logic"> <span>Logic Design</span>
-                                    </label>
-                                    <label class="d-block radio" data-toggle="tooltip" data-placement="right" title="<h5>VHDL</h5>">
-                                        <input type="radio" class="mr-1" name="electronics" value="vhdl"> <span>VHDL</span>
-                                    </label>
-                                    <label class="d-block radio" data-toggle="tooltip" data-placement="right" title="<h5>Cadence Workshop</h5>">
-                                        <input type="radio" class="mr-1" name="electronics" value="cadence"> <span>Cadence</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class=" col-sm-6 col-md-3 nopad text-center opt" data-toggle="tooltip" data-placement="top" title="<h5>Embedded Directorate Workshops</h5>">
-                                <label class="image-checkbox">
-                                    <img class="img-fluid rounded" src="images/arduino.png"/>
-                                    <input type="checkbox" name="image[]" value="" class="check-box"/>
+                                    <input type="checkbox" name="image[]" value="" required class="checkbox"/>
                                     <i class="fa fa-check d-none"></i>
                                 </label>
                                 <div class="sections pl-4 display">
@@ -242,6 +160,26 @@ This diploma is designed for giving a great knowledge of embedded system field f
             </form>
         </div>
     </div>
+
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>You can't select more than 2 Committees</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="mt-n4 text-center p-2">
         Designed and Coded by <strong>Muhammed Salah</strong> aka <strong>MiDo</strong>
     </footer>
