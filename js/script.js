@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var checkLen =0;
 
     // Centering the Form at the middle of screen
     var formHeight = $('.form-main').parent().innerHeight(),
@@ -32,40 +33,54 @@ $(document).ready(function() {
         }
     });
 
-
-
-    // $('input').forEach(function (item) {
-    //     if($(this).hasAttribute('data-written')) {
-    //         console.log($(this).attr('placeholder' + ' and has data-written'));
-    //     }
-    // });
-
-    // image gallery
-// init the state from the input
-//     $(".image-checkbox").each(function () {
-//         if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
-//             $(this).addClass('image-checkbox-checked');
-//         }
-//         else {
-//             $(this).removeClass('image-checkbox-checked');
-//         }
-//     });
-
+    $('.inner-checkbox').on('change',function(){
+        debugger;
+        if(checkLen >= 2) {
+            if($(this).prop('checked') == false) {
+                checkLen--;
+                $(this).siblings('.output').html('');
+                return;
+            } else {
+                $(this).prop('checked', false);
+                $('.modal').css('display','block');
+                return;
+            }
+        }
+        if(checkLen === 0 ){
+            $(this).siblings('.output').html('First Choice');
+        } else if(checkLen === 1 ) {
+            $(this).siblings('.output').html('Second Choice');
+        }
+        if($(this).prop('checked') == true) {
+            checkLen++;
+        } else {
+            checkLen--;
+            $(this).siblings('.output').html('');
+        }
+    });
 // sync the state to the input
-    var checkLen =0;
     $(".image-checkbox").on("click", function (e) {
-        // debugger;
-        if(checkLen > 1) {
-            $(this).removeClass('image-checkbox-checked');
-            $('.modal').css('display','block');
+        if(checkLen >= 2) {
+            if($(this).hasClass('image-checkbox-checked')) {
+                $(this).removeClass('image-checkbox-checked');
+                $(this).siblings('.sections').addClass('display');
+                e.preventDefault();
+                $(this).siblings('.sections').children().each(function() {
+                    if($(this).find('.inner-checkbox').prop('checked') == true) {
+                        $(this).find('.inner-checkbox').prop('checked', false);
+                        $(this).find('.output').html('');
+                        checkLen--;
+                    }
+                });
+            } else
+            {
+                $('.modal').css('display','block');
+            }
         } else {
             $(this).toggleClass('image-checkbox-checked');
             $(this).siblings('.sections').toggleClass('display');
-            var $checkbox = $(this).find('input[type="checkbox"]');
-            $checkbox.prop("checked",!$checkbox.prop("checked"));
             e.preventDefault();
         }
-        checkLen  = $('.image-checkbox.image-checkbox-checked').length;
     });
 
     $('[data-toggle="tooltip"]').tooltip({
@@ -80,19 +95,6 @@ $(document).ready(function() {
             $(this).parent().append("<span class='position-absolute' style='top:60%; right:10px; color:red;'><strong>*</strong></span>");
         }
     });
-
-    // $('.image-checkbox').click(function(){
-    //     if($('.image-checkbox.image-checkbox-checked').length > 2) {
-    //         $(this).removeClass('image-checkbox-checked');
-    //         $(this).siblings('.sections').removeClass('display');
-    //     }
-    //     // console.log($('.image-checkbox.image-checkbox-checked').length);
-    //     // if ($('.checkbox:checked').length >= 3) {
-    //     //     $(".checkbox").not(":checked").attr("disabled",true);
-    //     // }
-    //     // else
-    //     //     $(".checkbox").not(":checked").removeAttr('disabled');
-    // });
 
     $('.modal-footer button, .modal-header button').on('click', function(){
         $('.modal').css('display','none');
